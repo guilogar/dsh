@@ -18,8 +18,16 @@ public class Mover : MonoBehaviour {
         float mv = Input.GetAxis("Vertical");
 
         // mh *= -1;
+        mv *= -1;
 
-        Vector3 movement = new Vector3(mv, 0.0f, mh);
-        rb.AddForce(movement * velocity);
-	}
+        if(mh != 0)
+        {
+            Vector3 movement = new Vector3(mv, 0.0f, mh);
+            rb.AddForce(movement * velocity);
+        } else if(mv != 0)
+        {
+            Vector3 movement = new Vector3(mv, 0.0f, mh);
+            rb.AddForce(movement * velocity);
+        }
+    }
 }

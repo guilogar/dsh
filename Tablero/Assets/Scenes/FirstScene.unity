@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 281126837}
   - component: {fileID: 281126841}
   - component: {fileID: 281126842}
+  - component: {fileID: 281126843}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -298,6 +299,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 5
+--- !u!114 &281126843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281126836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d12b39dd13e1340944d867d111b35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEstrellas: 4
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +429,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1324311462008592, guid: 39d76ecfc255ede4da5dbcf8d1d39e99, type: 2}
       propertyPath: m_Name
-      value: Estrella (1)
+      value: Estrella
       objectReference: {fileID: 0}
     - target: {fileID: 4945887223400934, guid: 39d76ecfc255ede4da5dbcf8d1d39e99, type: 2}
       propertyPath: m_LocalScale.y
@@ -560,7 +573,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1324311462008592, guid: 39d76ecfc255ede4da5dbcf8d1d39e99, type: 2}
       propertyPath: m_Name
-      value: Estrella (3)
+      value: Estrella
       objectReference: {fileID: 0}
     - target: {fileID: 4945887223400934, guid: 39d76ecfc255ede4da5dbcf8d1d39e99, type: 2}
       propertyPath: m_LocalScale.y
@@ -614,7 +627,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1324311462008592, guid: 39d76ecfc255ede4da5dbcf8d1d39e99, type: 2}
       propertyPath: m_Name
-      value: Estrella (2)
+      value: Estrella
       objectReference: {fileID: 0}
     - target: {fileID: 4945887223400934, guid: 39d76ecfc255ede4da5dbcf8d1d39e99, type: 2}
       propertyPath: m_LocalScale.y
