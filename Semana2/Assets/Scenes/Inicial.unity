@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camara: {fileID: 135438551}
-  force: 1
+  force: 10
   x: 0
   z: 0
   prefab: {fileID: 1465636935687230, guid: 7a8db11986187b74984854ec2debdc0e, type: 2}
