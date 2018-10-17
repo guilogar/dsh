@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Jugador : MonoBehaviour {
     public Camera camara;
-    public float force = 1;
+    public Text puntuacion;
+    public float force = 5;
+    private float puntos = 0;
 
     private Vector3 offset;
     private Rigidbody rb;
@@ -13,6 +17,8 @@ public class Jugador : MonoBehaviour {
     public float x = 0;
     public float z = 0;
     public GameObject prefab; //el cubo que voy  a duplicar
+    public GameObject diamante;
+    public GameObject bola;
 
     //Variable para el retraso
     private float myDealy = 0.5f;
@@ -29,6 +35,7 @@ public class Jugador : MonoBehaviour {
         //Trabajar con el prefab
         //Empezamos a crear GameObject, el primero debemos desplazarlos
         GameObject elcubo = Instantiate(prefab, new Vector3(x, 0, z), Quaternion.identity) as GameObject;
+        GameObject eldiamante = Instantiate(diamante, new Vector3(x, 1, z), Quaternion.identity) as GameObject;
         z = z + 6.01f;
         elcubo.transform.position = new Vector3(x, 0, z);
         //Creamos unos cuantos cuadros iniciales
@@ -44,12 +51,17 @@ public class Jugador : MonoBehaviour {
                 z = z + 6.01f;
             }
             elcubo = Instantiate(prefab, new Vector3(x, 0, z), Quaternion.identity) as GameObject;
+            eldiamante = Instantiate(diamante, new Vector3(x, 1, z), Quaternion.identity) as GameObject;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(puntos == 3)
+        {
+            SceneManager.LoadScene(2);
+        }
         //Vamos moviendo la cámara
         camara.transform.position = this.transform.position + offset;
         //Según vaya pulsando el botón de espacio se mueve en una dirección
@@ -93,6 +105,17 @@ public class Jugador : MonoBehaviour {
                 z = z + 6.01f;
             }
             GameObject elcubo = Instantiate(prefab, new Vector3(x, 0, z), Quaternion.identity) as GameObject;
+            GameObject eldiamante = Instantiate(diamante, new Vector3(x, 1, z), Quaternion.identity) as GameObject;
+        }
+    }
+
+    //Comer diamante
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("diamante"))
+        {
+            other.gameObject.SetActive(false);
+            this.puntuacion.text = "Puntos: " + (++this.puntos);
         }
     }
 
